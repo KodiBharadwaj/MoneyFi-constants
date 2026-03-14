@@ -47,12 +47,10 @@ public class CommonConstants {
     public static String generateAlphabetCode() {
         StringBuilder code = new StringBuilder();
         Random random = new Random();
-
         for (int i = 0; i < 5; i++) {
             int index = random.nextInt(ALPHABET.length());
             code.append(ALPHABET.charAt(index));
         }
-
         return code.toString();
     }
 }
