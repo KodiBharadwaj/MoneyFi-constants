@@ -38,6 +38,9 @@ public class CommonConstants {
 
     public static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
+    public static final String LOCAL_PROFILE_RABBIT_MQ = "local-rabbitmq";
+    public static final String PROD_PROFILE_RABBIT_MQ = "prod-rabbitmq";
+
     public static String generateVerificationCode() {
         Random random = new Random();
         int verificationCode = 100000 + random.nextInt(900000);
