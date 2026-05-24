@@ -4,22 +4,26 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public class IncomeBatchInfoDto implements Serializable {
+public class BatchInfoForEmailDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String transactionType;
     private String description;
     private BigDecimal amount;
     private String name;
+    private String username;
+    private Long userId;
 
-    public IncomeBatchInfoDto(String transactionType, String description, BigDecimal amount, String name) {
+    public BatchInfoForEmailDto(String transactionType, String description, BigDecimal amount, String name, String username, Long userId) {
         this.transactionType = transactionType;
         this.description = description;
         this.amount = amount;
         this.name = name;
+        this.username = username;
+        this.userId = userId;
     }
 
-    public IncomeBatchInfoDto() {
+    public BatchInfoForEmailDto() {
     }
 
     public String getTransactionType() {
@@ -54,25 +58,43 @@ public class IncomeBatchInfoDto implements Serializable {
         this.name = name;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
     @Override
     public String toString() {
-        return "IncomeBatchInfoDto{" +
+        return "BatchInfoForEmailDto{" +
                 "transactionType='" + transactionType + '\'' +
                 ", description='" + description + '\'' +
                 ", amount=" + amount +
                 ", name='" + name + '\'' +
+                ", username='" + username + '\'' +
+                ", userId=" + userId +
                 '}';
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        IncomeBatchInfoDto that = (IncomeBatchInfoDto) o;
-        return Objects.equals(transactionType, that.transactionType) && Objects.equals(description, that.description) && Objects.equals(amount, that.amount) && Objects.equals(name, that.name);
+        BatchInfoForEmailDto that = (BatchInfoForEmailDto) o;
+        return Objects.equals(transactionType, that.transactionType) && Objects.equals(description, that.description) && Objects.equals(amount, that.amount) && Objects.equals(name, that.name) && Objects.equals(username, that.username) && Objects.equals(userId, that.userId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(transactionType, description, amount, name);
+        return Objects.hash(transactionType, description, amount, name, username, userId);
     }
 }
