@@ -38,6 +38,14 @@ public class CommonConstants {
 
     public static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
+    public static final String OFFSET = "offset";
+    public static final String LIMIT = "limit";
+    public static final String SEARCH = "search";
+    public static final String SEARCH_BY = "searchBy";
+    public static final String SORT_BY = "sortBy";
+    public static final String SORT_ORDER = "sortOrder";
+    public static final String STATUS = "status";
+
     public static String generateVerificationCode() {
         Random random = new Random();
         int verificationCode = 100000 + random.nextInt(900000);
