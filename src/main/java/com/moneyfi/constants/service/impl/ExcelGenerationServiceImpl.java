@@ -5,6 +5,7 @@ import com.moneyfi.constants.annotation.ExcelSheet;
 import com.moneyfi.constants.dto.excel.ExcelStreamRequestDto;
 import com.moneyfi.constants.service.ExcelGenerationService;
 import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.streaming.SXSSFSheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 
 import java.io.OutputStream;
@@ -119,6 +120,9 @@ public class ExcelGenerationServiceImpl implements ExcelGenerationService {
     }
 
     private void autoSize(Sheet sheet, int count) {
+        if (sheet instanceof SXSSFSheet sxssfSheet) {
+            sxssfSheet.trackAllColumnsForAutoSizing();
+        }
         for (int i = 0; i < count; i++) {
             sheet.autoSizeColumn(i);
         }
