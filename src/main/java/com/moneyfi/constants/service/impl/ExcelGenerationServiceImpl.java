@@ -13,6 +13,7 @@ import java.lang.reflect.Field;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
@@ -52,6 +53,7 @@ public class ExcelGenerationServiceImpl implements ExcelGenerationService {
     private List<Field> getExcelFields(Class<?> clazz) {
         return Arrays.stream(clazz.getDeclaredFields())
                 .filter(field -> field.isAnnotationPresent(ExcelColumn.class))
+                .sorted(Comparator.comparingInt(field -> field.getAnnotation(ExcelColumn.class).order()))
                 .peek(field -> field.setAccessible(true))
                 .toList();
     }
