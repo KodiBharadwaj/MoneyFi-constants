@@ -54,6 +54,7 @@ public class CommonConstants {
     public static final String SORT_ORDER = "sortOrder";
     public static final String STATUS = "status";
     public static final String EXCEL_FORMAT = "xlsx";
+    public static final String AUTHORIZATION = "Authorization";
 
     public static final String DOT = ".";
     public static final String SPACE = " ";
