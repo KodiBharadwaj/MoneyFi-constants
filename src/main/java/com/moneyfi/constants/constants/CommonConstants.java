@@ -59,6 +59,9 @@ public class CommonConstants {
     public static final String STATUS = "status";
     public static final String EXCEL_FORMAT = "xlsx";
     public static final String AUTHORIZATION = "Authorization";
+    public static final String TOKEN_BLACKLISTED_MESSAGE = "Token is Blacklisted";
+    public static final String USER_VALIDATION_FAILED_MESSAGE = "Failed to validate the user";
+    public static final String USER_ID = "userId";
 
     public static final String DOT = ".";
     public static final String SPACE = " ";
