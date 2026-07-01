@@ -2,7 +2,15 @@ package com.moneyfi.constants.constants;
 
 import com.moneyfi.constants.enums.ReasonEnum;
 import com.moneyfi.constants.enums.UserRoles;
+import org.apache.poi.ss.usermodel.CellStyle;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
@@ -14,6 +22,9 @@ public class CommonConstants {
     private CommonConstants() {}
 
     public static final String MONEYFI_APPLICATION_NAME = "MoneyFi";
+
+    public static final String DATE_TIME_UNDERSCORE_PATTERN = "yyyy_MM_dd HH_mm_ss";
+    public static final String DATE_TIME_GENERIC_PATTERN = "yyyy-MM-dd HH:mm:ss";
 
     public static final Map<Integer, String> userRoleAssociation = Map.of(1, UserRoles.ADMIN.name(), 2, UserRoles.USER.name(), 3, UserRoles.DEVELOPER.name(), 4, UserRoles.MAINTAINER.name());
     public static final Map<ReasonEnum, Integer> reasonCodeIdAssociation =
@@ -35,6 +46,7 @@ public class CommonConstants {
                     Map.entry(ADMIN_DELETE, 15),
                     Map.entry(ADMIN_RETRIEVAL, 16)
             );
+    public static final Map<String, CellStyle> dateStyles = new HashMap<>();
 
     public static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
@@ -45,6 +57,15 @@ public class CommonConstants {
     public static final String SORT_BY = "sortBy";
     public static final String SORT_ORDER = "sortOrder";
     public static final String STATUS = "status";
+    public static final String EXCEL_FORMAT = "xlsx";
+    public static final String AUTHORIZATION = "Authorization";
+    public static final String TOKEN_BLACKLISTED_MESSAGE = "Token is Blacklisted";
+    public static final String USER_VALIDATION_FAILED_MESSAGE = "Failed to validate the user";
+    public static final String USER_ID = "userId";
+
+    public static final String DOT = ".";
+    public static final String SPACE = " ";
+
 
     public static String generateVerificationCode() {
         Random random = new Random();
@@ -60,5 +81,19 @@ public class CommonConstants {
             code.append(ALPHABET.charAt(index));
         }
         return code.toString();
+    }
+
+    public static Path prepareOutputPath(String fileName, String outputDirectory) throws IOException {
+        Path dir = Paths.get(outputDirectory).toAbsolutePath().normalize();
+        Files.createDirectories(dir);
+        return dir.resolve(fileName);
+    }
+
+    public static void deleteLocalFile(Path localFilePath) throws IOException {
+        if (Files.exists(localFilePath)) Files.deleteIfExists(localFilePath);
+    }
+
+    public static String functionToGenerateFileNameForReports(String prefix, LocalDateTime time) {
+        return prefix + SPACE + time.format(DateTimeFormatter.ofPattern(DATE_TIME_UNDERSCORE_PATTERN)) + DOT + EXCEL_FORMAT;
     }
 }
