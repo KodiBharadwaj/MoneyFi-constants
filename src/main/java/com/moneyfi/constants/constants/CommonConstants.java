@@ -66,6 +66,7 @@ public class CommonConstants {
     public static final String TOKEN_BLACKLISTED_MESSAGE = "Token is Blacklisted";
     public static final String USER_VALIDATION_FAILED_MESSAGE = "Failed to validate the user";
     public static final String USER_ID = "userId";
+    public static final String ARTEMIS = "artemis";
     public static final String REDIS_BLACKLIST_TOKEN_PREFIX_KEY = "blackListToken";
 
     public static final String DOT = ".";
