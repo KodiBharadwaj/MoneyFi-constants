@@ -74,6 +74,8 @@ public class CommonConstants {
     public static final String USER_ID = "userId";
     public static final String ARTEMIS = "artemis";
     public static final String REDIS_BLACKLIST_TOKEN_PREFIX_KEY = "blackListToken";
+    public static final String STRING_JWT = "JWT";
+    public static final String STRING_BEARER_AUTH = "bearerAuth";
 
     public static final String STRING_USERNAME = "username";
     public static final String STRING_VERIFICATION_CODE = "verificationCode";
@@ -88,6 +90,8 @@ public class CommonConstants {
     public static final String COLON = ":";
     public static final String STRING_SEPARATOR = "<|>";
     public static final String STRING_LINE_SEPARATOR = " | ";
+    public static final String SLASH = "/";
+    public static final String ASTERISK = "*";
 
     public static final String REQUEST_ID_HEADER = "Request-Id";
     public static final String MDC_REQUEST_ID = "requestId";
